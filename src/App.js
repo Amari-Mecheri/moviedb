@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import {GlobalStyle} from './GlobalStyle'
+import Header from './components/Header/Header';
+import Home from './components/Home/Home';
+import Movie from './components/Movie/Movie';
+import NotFound from './components/NotFound/NotFound';
+import {useHomeFetch} from './Hooks/useHomeFetch';
+
+    //Hook
 
 function App() {
+  const {state, loading, error, currentItem, searchTerm, setCurrentItem, setSearchTerm, setIsLoadingMore} = useHomeFetch();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header/>
+      <Routes>
+        <Route path='/' element={<Home props={{state, loading, error, currentItem, searchTerm, setCurrentItem, setSearchTerm, setIsLoadingMore}} />}/>
+        <Route path='/:movieId' element={<Movie/>}/>
+        <Route path='/*' element={<NotFound/>}/>
+      </Routes>
+      <GlobalStyle/>
+    </Router>
   );
 }
 
