@@ -52,6 +52,7 @@ export const Text = styled.div`
         height: 35px;
         background: #fff;
         color: #000;
+        font-size: 8px;
         font-weight: 800;
         border-radius: 50%;
         margin: 0;
