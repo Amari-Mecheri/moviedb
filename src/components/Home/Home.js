@@ -26,6 +26,7 @@
                 { !searchTerm &&
                 state?.results[currentItem] ?
                     <HeroImage 
+                    movieId={state.results[currentItem].id}
                     image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${state.results[currentItem].backdrop_path}`}
                     title={state.results[currentItem].original_title}
                     text={state.results[currentItem].overview}/> 
