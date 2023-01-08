@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 //API
 import API from "../API";
-//import { loadFromLocalStorage, saveToLocalStorage } from "../helpers";
+import { loadFromLocalStorage, saveToLocalStorage } from "../helpers";
 
 const initialState = {
   page: 0,
