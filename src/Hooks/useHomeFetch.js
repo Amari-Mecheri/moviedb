@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 //API
 import API from "../API";
-// tslint:disable-next-line:no-unused-variable
 import { loadFromLocalStorage, saveToLocalStorage } from "../helpers";
 
 const initialState = {
